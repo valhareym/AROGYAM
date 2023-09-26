@@ -1,15 +1,13 @@
 from flask import Flask, request, jsonify
-from flask_swagger_ui import get_swaggerui_blueprint
 import os
 import openai
 import pymysql
 
-# ... (Your existing code) ...
 # Create a Flask app
 app = Flask(__name__)
 
 # Set your OpenAI API key
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = "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"
 
 # MySQL database configuration
 host = "brv4cveuxczuowlqcmu4-mysql.services.clever-cloud.com"
@@ -17,7 +15,7 @@ database_name = "brv4cveuxczuowlqcmu4"
 user = "ugfyvb8dgrx9uox7"
 port = 3306
 password = "132qS8lEtZx2b5FlEl2K"
-TABLE_NAME='docs'
+TABLE_NAME = 'doctors'
 
 # Connect to the MySQL database
 connection = pymysql.connect(
@@ -68,7 +66,6 @@ class CustomChain:
             response_text += doctor_details
 
         return response_text
-    # (Your CustomChain class code here, as defined in your previous code)
 
 def get_specialization(query):
     try:
@@ -77,7 +74,7 @@ def get_specialization(query):
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": "You are a specialization guesser. Your job is to identify the most appropriate medical specialization based on the symptoms described. Your answer should be a single word representing the specialization. Example; User: I have toothache,your response:Dentist,User : I have ear pain,Your response: ENT specialist "},
+                 "content": "You are a specialization guesser. Your job is to identify the most appropriate medical specialization based on the symptoms described. Your answer should be a single word representing the specialization. Example; User: I have toothache, your response: Dentist, User: I have ear pain, your response: ENT specialist "},
                 {"role": "user", "content": f"Symptoms: {query}"},
             ],
             max_tokens=5  # Limit the number of tokens to encourage a brief response
@@ -90,6 +87,7 @@ def get_specialization(query):
 
 # Instantiate the custom chain
 chain = CustomChain(openai_api_key=os.environ["OPENAI_API_KEY"])
+
 def get_doctors_by_specialization(specialization):
     try:
         # Search the database for doctors with the specialization who are available
@@ -139,24 +137,6 @@ def get_doctors_by_specialization_api():
         doctor_details.append({columns[i]: doc[i] for i in range(len(columns))})
 
     return jsonify({'doctors': doctor_details})
-
-# Define the Swagger UI configuration
-SWAGGER_URL = '/swagger'
-API_URL = '/static/swagger.json'  # This URL should point to your Swagger JSON file
-
-# Create a Swagger UI blueprint
-swagger_ui_blueprint = get_swaggerui_blueprint(
-    SWAGGER_URL,
-    API_URL,
-    config={
-        'app_name': "MEDAPI"
-    }
-)
-
-# Register the Swagger UI blueprint with your app
-app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
-
-# ... (Your existing code) ...
 
 if __name__ == '__main__':
     app.run(debug=True)
