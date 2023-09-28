@@ -6,6 +6,8 @@ const BookAppointment = () => {
   const location = useLocation();
   const doctor = location.state?.doctor;
 
+  console.log("Received doctor:", doctor); // Log the received doctor object
+
   if (!doctor) {
     return <div>Error: No doctor selected!</div>;
   }
