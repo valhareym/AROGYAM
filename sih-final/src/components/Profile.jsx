@@ -8,7 +8,7 @@ const Profile = () => {
         <table className='mt-6 text-md lg:text-lg w-full'>
           <tr className=''>
             <td className='p-1 font-semibold'>Name:</td>
-            <td className='px-8'><input type='text' value='Abhyudyay Singh Taragi' className='w-full border border-solid border-gray-400 p-1 px-2 rounded-sm' /></td>
+            <td className='px-8'><input type='text' value='Harshvardhan Singh' className='w-full border border-solid border-gray-400 p-1 px-2 rounded-sm' /></td>
           </tr>
           <tr className=''>
             <td className='py-3 p-1 font-semibold'>Phone:</td>
@@ -16,7 +16,7 @@ const Profile = () => {
           </tr>
           <tr>
             <td className='py-3 p-1 font-semibold'>Email:</td>
-            <td className='px-8'><input type='email' value='taragi_abhyudyay@gmail.com' className='w-full border border-solid border-gray-400 p-1 px-2 rounded-sm' /></td>
+            <td className='px-8'><input type='email' value='harshvardhan@gmail.com' className='w-full border border-solid border-gray-400 p-1 px-2 rounded-sm' /></td>
           </tr>
           <tr>
             <td className='py-3 p-1 font-semibold'>Age:</td>

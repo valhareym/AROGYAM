@@ -8,10 +8,10 @@ const app = express();
 const port = process.env.PORT || 3001;
 app.use(cors());
 const dbConfig = {
-  host: process.env.DB_HOST || "brv4cveuxczuowlqcmu4-mysql.services.clever-cloud.com",
-  user: process.env.DB_USER || "ugfyvb8dgrx9uox7",
-  password: process.env.DB_PASSWORD || "132qS8lEtZx2b5FlEl2K",
-  database: process.env.DB_NAME || "brv4cveuxczuowlqcmu4",
+  host: process.env.DB_HOST || "localhost",
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "shreyas",
+  database: process.env.DB_NAME || "SIHDB",
   port: process.env.DB_PORT || 3306,
 };
 

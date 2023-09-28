@@ -52,7 +52,7 @@ const HospitalDetails = () => {
       <div className='flex items-center justify-center'>
         <div className='flex flex-col items-start w-full lg:w-2/5 lg:h-[80vh] h-[60vh] gap-2 justify-center mx-10 '>
           <h1 className='font-bold mt-12 lg:mt-0 text-xl lg:text-2xl'>{hospital.name}</h1>
-          <h1 className='font-semibold text-sm lg:text-md'>{hospital.address}</h1>
+          <h1 className='font-semibold text-sm lg:text-md'>{hospital.Address}</h1>
           <div className='flex mt-4 items-center rounded-sm border border-solid border-black w-full px-4  '>
             <i><AiOutlineSearch size={'18'}/></i>
             <input
@@ -69,7 +69,7 @@ const HospitalDetails = () => {
               return (
                 <React.Fragment key={doctor.ID}>
                   <Link
-                    to={{pathname: '/book-appointment', state: { doctor }}}
+                    to={{pathname: '/booked', state: { doctor }}}
                     onClick={() => console.log("Navigating with doctor:", doctor)}
                   >
                     <div className='text-xs lg:text-base cursor-pointer px-4 py-1 border-gray-700 flex items-center w-full lg:w-4/5 justify-between my-2 hover:bg-gray-200 rounded-sm'>

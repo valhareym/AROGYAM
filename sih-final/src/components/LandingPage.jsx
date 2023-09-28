@@ -10,8 +10,8 @@ const LandingPage = () => {
         <h1 className='text-4xl lg:text-6xl font-bold tracking-wide'>Connect Patient And Healthcare Seamlessly</h1>
         <h3 className='text-lg lg:text-xl mt-5'>Login as</h3>
         <div className='flex gap-5'>
-          <Link to={'/login-user'} className='font-semibold text-md lg:text-xl p-2 px-5 border border-solid border-black rounded-md hover:bg-black hover:text-white transition-all'>User</Link>
-          <Link to={'/login-admin'} className='font-semibold text-md lg:text-xl p-2 px-5 border border-solid border-black rounded-md hover:bg-black hover:text-white transition-all '>Admin</Link>
+          <Link to={'/login-user'} className='font-semibold text-md lg:text-xl p-2 px-5 border border-solid border-black rounded-md hover:bg-black hover:text-white transition-all'>Patient</Link>
+          <Link to={'/login-admin'} className='font-semibold text-md lg:text-xl p-2 px-5 border border-solid border-black rounded-md hover:bg-black hover:text-white transition-all '>Doctor</Link>
         </div>
       </div>
       
