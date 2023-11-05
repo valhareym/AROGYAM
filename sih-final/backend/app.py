@@ -7,7 +7,7 @@ import pymysql
 app = Flask(__name__)
 
 # Set your OpenAI API key
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 # MySQL database configuration
 host = "brv4cveuxczuowlqcmu4-mysql.services.clever-cloud.com"
